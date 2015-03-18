@@ -1,0 +1,645 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml miniSpartan6_plus_top.twx miniSpartan6_plus_top.ncd -o
+miniSpartan6_plus_top.twr miniSpartan6_plus_top.pcf
+
+Design file:              miniSpartan6_plus_top.ncd
+Physical constraint file: miniSpartan6_plus_top.pcf
+Device,package,speed:     xc6slx9,ftg256,C,-3 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: NET "clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is  10.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 21.250ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 31.250ns
+  Low pulse: 15.625ns
+  Low pulse limit: 5.000ns (Tdcmpw_CLKIN_25_50)
+  Physical resource: clkgen_inst/pll_base_inst/CLKIN1
+  Logical resource: clkgen_inst/pll_base_inst/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN2
+  Clock network: clkgen_inst/pll_base_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 21.250ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 31.250ns
+  High pulse: 15.625ns
+  High pulse limit: 5.000ns (Tdcmpw_CLKIN_25_50)
+  Physical resource: clkgen_inst/pll_base_inst/CLKIN1
+  Logical resource: clkgen_inst/pll_base_inst/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN2
+  Clock network: clkgen_inst/pll_base_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 21.380ns (max period limit - period)
+  Period: 31.250ns
+  Max period limit: 52.630ns (19.001MHz) (Tpllper_CLKIN)
+  Physical resource: clkgen_inst/pll_base_inst/CLKIN1
+  Logical resource: clkgen_inst/pll_base_inst/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN2
+  Clock network: clkgen_inst/pll_base_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "clkgen_inst/clk0" derived from  NET 
+"clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;  divided by 3.00 to 10.417 nS 
+  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 131274 paths analyzed, 9616 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   9.633ns.
+--------------------------------------------------------------------------------
+
+Paths for end point gpio_inst/input_mapper_q_46_2 (SLICE_X3Y49.CE), 18 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.783ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               clkgen_inst/rst1_q (FF)
+  Destination:          gpio_inst/input_mapper_q_46_2 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      9.557ns (Levels of Logic = 3)
+  Clock Path Skew:      0.033ns (0.712 - 0.679)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: clkgen_inst/rst1_q to gpio_inst/input_mapper_q_46_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y8.AQ       Tcko                  0.391   clkgen_inst/rst1_q
+                                                       clkgen_inst/rst1_q
+    SLICE_X19Y7.B4       net (fanout=170)      1.094   clkgen_inst/rst1_q
+    SLICE_X19Y7.B        Tilo                  0.259   timers_inst/timer0_inst/tmrr_presrst
+                                                       rstgen/rstout1
+    SLICE_X7Y59.C6       net (fanout=255)      5.070   sysrst
+    SLICE_X7Y59.C        Tilo                  0.259   gpio_inst/input_mapper_q_14<3>
+                                                       gpio_inst/_n2067_inv41
+    SLICE_X1Y59.D5       net (fanout=2)        0.851   gpio_inst/_n2067_inv_bdd4
+    SLICE_X1Y59.DMUX     Tilo                  0.313   gpio_inst/_n2387_inv
+                                                       gpio_inst/_n2427_inv11
+    SLICE_X3Y49.CE       net (fanout=2)        0.980   gpio_inst/_n2427_inv
+    SLICE_X3Y49.CLK      Tceck                 0.340   gpio_inst/input_mapper_q_46<3>
+                                                       gpio_inst/input_mapper_q_46_2
+    -------------------------------------------------  ---------------------------
+    Total                                      9.557ns (1.562ns logic, 7.995ns route)
+                                                       (16.3% logic, 83.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.812ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               rstgen/rstcount_zero_q (FF)
+  Destination:          gpio_inst/input_mapper_q_46_2 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      9.514ns (Levels of Logic = 3)
+  Clock Path Skew:      0.019ns (0.712 - 0.693)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: rstgen/rstcount_zero_q to gpio_inst/input_mapper_q_46_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y14.DQ      Tcko                  0.391   rstgen/rstcount_zero_q
+                                                       rstgen/rstcount_zero_q
+    SLICE_X19Y7.B3       net (fanout=156)      1.051   rstgen/rstcount_zero_q
+    SLICE_X19Y7.B        Tilo                  0.259   timers_inst/timer0_inst/tmrr_presrst
+                                                       rstgen/rstout1
+    SLICE_X7Y59.C6       net (fanout=255)      5.070   sysrst
+    SLICE_X7Y59.C        Tilo                  0.259   gpio_inst/input_mapper_q_14<3>
+                                                       gpio_inst/_n2067_inv41
+    SLICE_X1Y59.D5       net (fanout=2)        0.851   gpio_inst/_n2067_inv_bdd4
+    SLICE_X1Y59.DMUX     Tilo                  0.313   gpio_inst/_n2387_inv
+                                                       gpio_inst/_n2427_inv11
+    SLICE_X3Y49.CE       net (fanout=2)        0.980   gpio_inst/_n2427_inv
+    SLICE_X3Y49.CLK      Tceck                 0.340   gpio_inst/input_mapper_q_46<3>
+                                                       gpio_inst/input_mapper_q_46_2
+    -------------------------------------------------  ---------------------------
+    Total                                      9.514ns (1.562ns logic, 7.952ns route)
+                                                       (16.4% logic, 83.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.931ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               zpuino/io/addr_save_q_2 (FF)
+  Destination:          gpio_inst/input_mapper_q_46_2 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      8.471ns (Levels of Logic = 3)
+  Clock Path Skew:      0.095ns (0.712 - 0.617)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: zpuino/io/addr_save_q_2 to gpio_inst/input_mapper_q_46_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y23.AQ      Tcko                  0.447   zpuino/io/addr_save_q<5>
+                                                       zpuino/io/addr_save_q_2
+    SLICE_X15Y35.C1      net (fanout=321)      2.596   zpuino/io/addr_save_q<2>
+    SLICE_X15Y35.C       Tilo                  0.259   slot_cyc<2>
+                                                       gpio_inst/_n1967_inv81
+    SLICE_X7Y59.C4       net (fanout=9)        2.426   gpio_inst/_n1967_inv_bdd10
+    SLICE_X7Y59.C        Tilo                  0.259   gpio_inst/input_mapper_q_14<3>
+                                                       gpio_inst/_n2067_inv41
+    SLICE_X1Y59.D5       net (fanout=2)        0.851   gpio_inst/_n2067_inv_bdd4
+    SLICE_X1Y59.DMUX     Tilo                  0.313   gpio_inst/_n2387_inv
+                                                       gpio_inst/_n2427_inv11
+    SLICE_X3Y49.CE       net (fanout=2)        0.980   gpio_inst/_n2427_inv
+    SLICE_X3Y49.CLK      Tceck                 0.340   gpio_inst/input_mapper_q_46<3>
+                                                       gpio_inst/input_mapper_q_46_2
+    -------------------------------------------------  ---------------------------
+    Total                                      8.471ns (1.618ns logic, 6.853ns route)
+                                                       (19.1% logic, 80.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point gpio_inst/input_mapper_q_37_2 (SLICE_X5Y54.CE), 18 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.790ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               zpuino/io/addr_save_q_2 (FF)
+  Destination:          gpio_inst/input_mapper_q_37_2 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      9.595ns (Levels of Logic = 3)
+  Clock Path Skew:      0.078ns (0.695 - 0.617)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: zpuino/io/addr_save_q_2 to gpio_inst/input_mapper_q_37_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y23.AQ      Tcko                  0.447   zpuino/io/addr_save_q<5>
+                                                       zpuino/io/addr_save_q_2
+    SLICE_X15Y35.C1      net (fanout=321)      2.596   zpuino/io/addr_save_q<2>
+    SLICE_X15Y35.CMUX    Tilo                  0.313   slot_cyc<2>
+                                                       gpio_inst/_n1977_inv71
+    SLICE_X9Y21.A3       net (fanout=9)        1.568   gpio_inst/_n1977_inv_bdd10
+    SLICE_X9Y21.A        Tilo                  0.259   gpio_inst/_n1977_inv
+                                                       gpio_inst/_n1977_inv41
+    SLICE_X7Y47.A3       net (fanout=2)        3.011   gpio_inst/_n1977_inv_bdd4
+    SLICE_X7Y47.AMUX     Tilo                  0.313   gpio_i<35>
+                                                       gpio_inst/_n2337_inv11
+    SLICE_X5Y54.CE       net (fanout=2)        0.748   gpio_inst/_n2337_inv
+    SLICE_X5Y54.CLK      Tceck                 0.340   gpio_inst/input_mapper_q_37<3>
+                                                       gpio_inst/input_mapper_q_37_2
+    -------------------------------------------------  ---------------------------
+    Total                                      9.595ns (1.672ns logic, 7.923ns route)
+                                                       (17.4% logic, 82.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.637ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               zpuino/io/io_cyc (FF)
+  Destination:          gpio_inst/input_mapper_q_37_2 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      8.746ns (Levels of Logic = 4)
+  Clock Path Skew:      0.076ns (0.695 - 0.619)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: zpuino/io/io_cyc to gpio_inst/input_mapper_q_37_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y25.AQ      Tcko                  0.391   zpuino/io/io_cyc
+                                                       zpuino/io/io_cyc
+    SLICE_X15Y35.D3      net (fanout=8)        1.200   zpuino/io/io_cyc
+    SLICE_X15Y35.D       Tilo                  0.259   slot_cyc<2>
+                                                       zpuino/io/Mmux_slot_cyc_i<2>11
+    SLICE_X15Y35.C5      net (fanout=4)        0.344   slot_cyc<2>
+    SLICE_X15Y35.CMUX    Tilo                  0.313   slot_cyc<2>
+                                                       gpio_inst/_n1977_inv71
+    SLICE_X9Y21.A3       net (fanout=9)        1.568   gpio_inst/_n1977_inv_bdd10
+    SLICE_X9Y21.A        Tilo                  0.259   gpio_inst/_n1977_inv
+                                                       gpio_inst/_n1977_inv41
+    SLICE_X7Y47.A3       net (fanout=2)        3.011   gpio_inst/_n1977_inv_bdd4
+    SLICE_X7Y47.AMUX     Tilo                  0.313   gpio_i<35>
+                                                       gpio_inst/_n2337_inv11
+    SLICE_X5Y54.CE       net (fanout=2)        0.748   gpio_inst/_n2337_inv
+    SLICE_X5Y54.CLK      Tceck                 0.340   gpio_inst/input_mapper_q_37<3>
+                                                       gpio_inst/input_mapper_q_37_2
+    -------------------------------------------------  ---------------------------
+    Total                                      8.746ns (1.875ns logic, 6.871ns route)
+                                                       (21.4% logic, 78.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.911ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               zpuino/io/addr_save_q_25 (FF)
+  Destination:          gpio_inst/input_mapper_q_37_2 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      8.466ns (Levels of Logic = 4)
+  Clock Path Skew:      0.070ns (0.607 - 0.537)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: zpuino/io/addr_save_q_25 to gpio_inst/input_mapper_q_37_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y33.CMUX    Tshcko                0.455   zpuino/io/addr_save_q<9>
+                                                       zpuino/io/addr_save_q_25
+    SLICE_X15Y35.D2      net (fanout=124)      0.856   zpuino/io/addr_save_q<25>
+    SLICE_X15Y35.D       Tilo                  0.259   slot_cyc<2>
+                                                       zpuino/io/Mmux_slot_cyc_i<2>11
+    SLICE_X15Y35.C5      net (fanout=4)        0.344   slot_cyc<2>
+    SLICE_X15Y35.CMUX    Tilo                  0.313   slot_cyc<2>
+                                                       gpio_inst/_n1977_inv71
+    SLICE_X9Y21.A3       net (fanout=9)        1.568   gpio_inst/_n1977_inv_bdd10
+    SLICE_X9Y21.A        Tilo                  0.259   gpio_inst/_n1977_inv
+                                                       gpio_inst/_n1977_inv41
+    SLICE_X7Y47.A3       net (fanout=2)        3.011   gpio_inst/_n1977_inv_bdd4
+    SLICE_X7Y47.AMUX     Tilo                  0.313   gpio_i<35>
+                                                       gpio_inst/_n2337_inv11
+    SLICE_X5Y54.CE       net (fanout=2)        0.748   gpio_inst/_n2337_inv
+    SLICE_X5Y54.CLK      Tceck                 0.340   gpio_inst/input_mapper_q_37<3>
+                                                       gpio_inst/input_mapper_q_37_2
+    -------------------------------------------------  ---------------------------
+    Total                                      8.466ns (1.939ns logic, 6.527ns route)
+                                                       (22.9% logic, 77.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point gpio_inst/input_mapper_q_46_1 (SLICE_X3Y49.CE), 18 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.799ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               clkgen_inst/rst1_q (FF)
+  Destination:          gpio_inst/input_mapper_q_46_1 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      9.541ns (Levels of Logic = 3)
+  Clock Path Skew:      0.033ns (0.712 - 0.679)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: clkgen_inst/rst1_q to gpio_inst/input_mapper_q_46_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y8.AQ       Tcko                  0.391   clkgen_inst/rst1_q
+                                                       clkgen_inst/rst1_q
+    SLICE_X19Y7.B4       net (fanout=170)      1.094   clkgen_inst/rst1_q
+    SLICE_X19Y7.B        Tilo                  0.259   timers_inst/timer0_inst/tmrr_presrst
+                                                       rstgen/rstout1
+    SLICE_X7Y59.C6       net (fanout=255)      5.070   sysrst
+    SLICE_X7Y59.C        Tilo                  0.259   gpio_inst/input_mapper_q_14<3>
+                                                       gpio_inst/_n2067_inv41
+    SLICE_X1Y59.D5       net (fanout=2)        0.851   gpio_inst/_n2067_inv_bdd4
+    SLICE_X1Y59.DMUX     Tilo                  0.313   gpio_inst/_n2387_inv
+                                                       gpio_inst/_n2427_inv11
+    SLICE_X3Y49.CE       net (fanout=2)        0.980   gpio_inst/_n2427_inv
+    SLICE_X3Y49.CLK      Tceck                 0.324   gpio_inst/input_mapper_q_46<3>
+                                                       gpio_inst/input_mapper_q_46_1
+    -------------------------------------------------  ---------------------------
+    Total                                      9.541ns (1.546ns logic, 7.995ns route)
+                                                       (16.2% logic, 83.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.828ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               rstgen/rstcount_zero_q (FF)
+  Destination:          gpio_inst/input_mapper_q_46_1 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      9.498ns (Levels of Logic = 3)
+  Clock Path Skew:      0.019ns (0.712 - 0.693)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: rstgen/rstcount_zero_q to gpio_inst/input_mapper_q_46_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y14.DQ      Tcko                  0.391   rstgen/rstcount_zero_q
+                                                       rstgen/rstcount_zero_q
+    SLICE_X19Y7.B3       net (fanout=156)      1.051   rstgen/rstcount_zero_q
+    SLICE_X19Y7.B        Tilo                  0.259   timers_inst/timer0_inst/tmrr_presrst
+                                                       rstgen/rstout1
+    SLICE_X7Y59.C6       net (fanout=255)      5.070   sysrst
+    SLICE_X7Y59.C        Tilo                  0.259   gpio_inst/input_mapper_q_14<3>
+                                                       gpio_inst/_n2067_inv41
+    SLICE_X1Y59.D5       net (fanout=2)        0.851   gpio_inst/_n2067_inv_bdd4
+    SLICE_X1Y59.DMUX     Tilo                  0.313   gpio_inst/_n2387_inv
+                                                       gpio_inst/_n2427_inv11
+    SLICE_X3Y49.CE       net (fanout=2)        0.980   gpio_inst/_n2427_inv
+    SLICE_X3Y49.CLK      Tceck                 0.324   gpio_inst/input_mapper_q_46<3>
+                                                       gpio_inst/input_mapper_q_46_1
+    -------------------------------------------------  ---------------------------
+    Total                                      9.498ns (1.546ns logic, 7.952ns route)
+                                                       (16.3% logic, 83.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.947ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               zpuino/io/addr_save_q_2 (FF)
+  Destination:          gpio_inst/input_mapper_q_46_1 (FF)
+  Requirement:          10.416ns
+  Data Path Delay:      8.455ns (Levels of Logic = 3)
+  Clock Path Skew:      0.095ns (0.712 - 0.617)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 10.416ns
+  Clock Uncertainty:    0.109ns
+
+  Clock Uncertainty:          0.109ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.205ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: zpuino/io/addr_save_q_2 to gpio_inst/input_mapper_q_46_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y23.AQ      Tcko                  0.447   zpuino/io/addr_save_q<5>
+                                                       zpuino/io/addr_save_q_2
+    SLICE_X15Y35.C1      net (fanout=321)      2.596   zpuino/io/addr_save_q<2>
+    SLICE_X15Y35.C       Tilo                  0.259   slot_cyc<2>
+                                                       gpio_inst/_n1967_inv81
+    SLICE_X7Y59.C4       net (fanout=9)        2.426   gpio_inst/_n1967_inv_bdd10
+    SLICE_X7Y59.C        Tilo                  0.259   gpio_inst/input_mapper_q_14<3>
+                                                       gpio_inst/_n2067_inv41
+    SLICE_X1Y59.D5       net (fanout=2)        0.851   gpio_inst/_n2067_inv_bdd4
+    SLICE_X1Y59.DMUX     Tilo                  0.313   gpio_inst/_n2387_inv
+                                                       gpio_inst/_n2427_inv11
+    SLICE_X3Y49.CE       net (fanout=2)        0.980   gpio_inst/_n2427_inv
+    SLICE_X3Y49.CLK      Tceck                 0.324   gpio_inst/input_mapper_q_46<3>
+                                                       gpio_inst/input_mapper_q_46_1
+    -------------------------------------------------  ---------------------------
+    Total                                      8.455ns (1.602ns logic, 6.853ns route)
+                                                       (18.9% logic, 81.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: PERIOD analysis for net "clkgen_inst/clk0" derived from
+ NET "clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;
+ divided by 3.00 to 10.417 nS  
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart_inst/fifo_instance/Mram_memory (RAMB16_X1Y26.DIA0), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.338ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart_inst/rx_inst/datao_0 (FF)
+  Destination:          uart_inst/fifo_instance/Mram_memory (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.338ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: uart_inst/rx_inst/datao_0 to uart_inst/fifo_instance/Mram_memory
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y52.AQ      Tcko                  0.200   uart_inst/rx_inst/datao<3>
+                                                       uart_inst/rx_inst/datao_0
+    RAMB16_X1Y26.DIA0    net (fanout=1)        0.191   uart_inst/rx_inst/datao<0>
+    RAMB16_X1Y26.CLKA    Trckd_DIA   (-Th)     0.053   uart_inst/fifo_instance/Mram_memory
+                                                       uart_inst/fifo_instance/Mram_memory
+    -------------------------------------------------  ---------------------------
+    Total                                      0.338ns (0.147ns logic, 0.191ns route)
+                                                       (43.5% logic, 56.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart_inst/fifo_instance/Mram_memory (RAMB16_X1Y26.DIA4), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.363ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart_inst/rx_inst/datao_4 (FF)
+  Destination:          uart_inst/fifo_instance/Mram_memory (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.366ns (Levels of Logic = 0)
+  Clock Path Skew:      0.003ns (0.070 - 0.067)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: uart_inst/rx_inst/datao_4 to uart_inst/fifo_instance/Mram_memory
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y53.AQ      Tcko                  0.200   uart_inst/rx_inst/datao<7>
+                                                       uart_inst/rx_inst/datao_4
+    RAMB16_X1Y26.DIA4    net (fanout=1)        0.219   uart_inst/rx_inst/datao<4>
+    RAMB16_X1Y26.CLKA    Trckd_DIA   (-Th)     0.053   uart_inst/fifo_instance/Mram_memory
+                                                       uart_inst/fifo_instance/Mram_memory
+    -------------------------------------------------  ---------------------------
+    Total                                      0.366ns (0.147ns logic, 0.219ns route)
+                                                       (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart_inst/fifo_instance/Mram_memory (RAMB16_X1Y26.DIA5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.363ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart_inst/rx_inst/datao_5 (FF)
+  Destination:          uart_inst/fifo_instance/Mram_memory (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.366ns (Levels of Logic = 0)
+  Clock Path Skew:      0.003ns (0.070 - 0.067)
+  Source Clock:         sysclk rising at 0.000ns
+  Destination Clock:    sysclk rising at 0.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: uart_inst/rx_inst/datao_5 to uart_inst/fifo_instance/Mram_memory
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y53.BQ      Tcko                  0.200   uart_inst/rx_inst/datao<7>
+                                                       uart_inst/rx_inst/datao_5
+    RAMB16_X1Y26.DIA5    net (fanout=1)        0.219   uart_inst/rx_inst/datao<5>
+    RAMB16_X1Y26.CLKA    Trckd_DIA   (-Th)     0.053   uart_inst/fifo_instance/Mram_memory
+                                                       uart_inst/fifo_instance/Mram_memory
+    -------------------------------------------------  ---------------------------
+    Total                                      0.366ns (0.147ns logic, 0.219ns route)
+                                                       (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "clkgen_inst/clk0" derived from
+ NET "clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;
+ divided by 3.00 to 10.417 nS  
+
+--------------------------------------------------------------------------------
+Slack: 7.292ns (period - min period limit)
+  Period: 10.416ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: zpuino/stack/stackram[0].stackmem/CLKA
+  Logical resource: zpuino/stack/stackram[0].stackmem/CLKA
+  Location pin: RAMB16_X0Y18.CLKA
+  Clock network: sysclk
+--------------------------------------------------------------------------------
+Slack: 7.292ns (period - min period limit)
+  Period: 10.416ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKB(Fmax))
+  Physical resource: zpuino/stack/stackram[0].stackmem/CLKB
+  Logical resource: zpuino/stack/stackram[0].stackmem/CLKB
+  Location pin: RAMB16_X0Y18.CLKB
+  Clock network: sysclk
+--------------------------------------------------------------------------------
+Slack: 7.292ns (period - min period limit)
+  Period: 10.416ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: prom/rom/Mram_RAM1/CLKA
+  Logical resource: prom/rom/Mram_RAM1/CLKA
+  Location pin: RAMB16_X1Y18.CLKA
+  Clock network: sysclk
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: PERIOD analysis for net "clkgen_inst/clk1" derived from  NET 
+"clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;  divided by 3.00 to 10.417 nS 
+  
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   1.730ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: PERIOD analysis for net "clkgen_inst/clk1" derived from
+ NET "clkgen_inst/clkin_i" PERIOD = 31.25 ns HIGH 50%;
+ divided by 3.00 to 10.417 nS  
+
+--------------------------------------------------------------------------------
+Slack: 8.686ns (period - min period limit)
+  Period: 10.416ns
+  Min period limit: 1.730ns (578.035MHz) (Tbcper_I)
+  Physical resource: clkgen_inst/clk1_inst/I0
+  Logical resource: clkgen_inst/clk1_inst/I0
+  Location pin: BUFGMUX_X2Y2.I0
+  Clock network: clkgen_inst/clk1
+--------------------------------------------------------------------------------
+Slack: 8.777ns (period - min period limit)
+  Period: 10.416ns
+  Min period limit: 1.639ns (610.128MHz) (Tockper)
+  Physical resource: DRAM_CLK_OBUF/CLK0
+  Logical resource: sram_inst/ctrl/clock/CK0
+  Location pin: OLOGIC_X12Y42.CLK0
+  Clock network: sysclk_sram_we
+--------------------------------------------------------------------------------
+Slack: 9.013ns (period - min period limit)
+  Period: 10.416ns
+  Min period limit: 1.403ns (712.758MHz) (Tockper)
+  Physical resource: DRAM_CLK_OBUF/CLK1
+  Logical resource: sram_inst/ctrl/clock/CK1
+  Location pin: OLOGIC_X12Y42.CLK1
+  Clock network: sysclk_sram_we
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for clkgen_inst/clkin_i
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|clkgen_inst/clkin_i            |     31.250ns|     10.000ns|     28.899ns|            0|            0|            0|       131274|
+| clkgen_inst/clk0              |     10.417ns|      9.633ns|          N/A|            0|            0|       131274|            0|
+| clkgen_inst/clk1              |     10.417ns|      1.730ns|          N/A|            0|            0|            0|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    9.633|    4.358|         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 131274 paths, 0 nets, and 15624 connections
+
+Design statistics:
+   Minimum period:  10.000ns{1}   (Maximum frequency: 100.000MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Wed Mar 18 00:43:13 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 444 MB
+
+
+

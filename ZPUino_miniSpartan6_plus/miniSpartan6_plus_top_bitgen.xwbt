@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.ncd
+OUTFILE=/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.bit
+FAMILY=Spartan6
+PART=xc6slx9-3ftg256
+WORKINGDIR=/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master
+LICENSE=WebPack
+USER_INFO=210926568_0_0_400

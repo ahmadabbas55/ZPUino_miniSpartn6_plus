@@ -1,0 +1,19 @@
+xst -intstyle ise -ifn "/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.xst" -ofn "/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ipcore_dir/miniSpartan6.ucf -p xc6slx9-ftg256-3 miniSpartan6_plus_top.ngc miniSpartan6_plus_top.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o miniSpartan6_plus_top_map.ncd miniSpartan6_plus_top.ngd miniSpartan6_plus_top.pcf 
+par -w -intstyle ise -ol high -mt off miniSpartan6_plus_top_map.ncd miniSpartan6_plus_top.ncd miniSpartan6_plus_top.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml miniSpartan6_plus_top.twx miniSpartan6_plus_top.ncd -o miniSpartan6_plus_top.twr miniSpartan6_plus_top.pcf 
+bitgen -intstyle ise -f miniSpartan6_plus_top.ut miniSpartan6_plus_top.ncd 
+xst -intstyle ise -ifn "/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.xst" -ofn "/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.syr" 
+xst -intstyle ise -ifn "/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.xst" -ofn "/home/ufarooq/VHDL/miniSpartan6_ZPUino/miniSpartan6_plus_master/miniSpartan6_plus_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ipcore_dir/miniSpartan6.ucf -p xc6slx9-ftg256-3 miniSpartan6_plus_top.ngc miniSpartan6_plus_top.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ipcore_dir/miniSpartan6.ucf -p xc6slx9-ftg256-3 miniSpartan6_plus_top.ngc miniSpartan6_plus_top.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o miniSpartan6_plus_top_map.ncd miniSpartan6_plus_top.ngd miniSpartan6_plus_top.pcf 
+par -w -intstyle ise -ol high -mt off miniSpartan6_plus_top_map.ncd miniSpartan6_plus_top.ncd miniSpartan6_plus_top.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml miniSpartan6_plus_top.twx miniSpartan6_plus_top.ncd -o miniSpartan6_plus_top.twr miniSpartan6_plus_top.pcf 
+bitgen -intstyle ise -f miniSpartan6_plus_top.ut miniSpartan6_plus_top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ipcore_dir/miniSpartan6.ucf -p xc6slx9-ftg256-3 miniSpartan6_plus_top.ngc miniSpartan6_plus_top.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o miniSpartan6_plus_top_map.ncd miniSpartan6_plus_top.ngd miniSpartan6_plus_top.pcf 
+par -w -intstyle ise -ol high -mt off miniSpartan6_plus_top_map.ncd miniSpartan6_plus_top.ncd miniSpartan6_plus_top.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml miniSpartan6_plus_top.twx miniSpartan6_plus_top.ncd -o miniSpartan6_plus_top.twr miniSpartan6_plus_top.pcf 
+bitgen -intstyle ise -f miniSpartan6_plus_top.ut miniSpartan6_plus_top.ncd 

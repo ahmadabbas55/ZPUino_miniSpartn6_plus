@@ -1,0 +1,25 @@
+Release 14.7 Drc P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Wed Mar 18 00:43:20 2015
+
+drc -z miniSpartan6_plus_top.ncd miniSpartan6_plus_top.pcf
+
+WARNING:PhysDesignRules:1176 - Issue with pin connections and/or configuration
+   on block:<zpuino/core/cache/cachemem/Mram_RAM1>:<RAMB16BWER_RAMB16BWER>.  The
+   block is configured to use input parity pin DIBP0. There is dangling output
+   for parity pin DOPB0.
+WARNING:PhysDesignRules:1176 - Issue with pin connections and/or configuration
+   on block:<zpuino/core/cache/cachemem/Mram_RAM2>:<RAMB16BWER_RAMB16BWER>.  The
+   block is configured to use input parity pin DIBP0. There is dangling output
+   for parity pin DOPB0.
+WARNING:PhysDesignRules:1176 - Issue with pin connections and/or configuration
+   on block:<zpuino/core/cache/cachemem/Mram_RAM3>:<RAMB16BWER_RAMB16BWER>.  The
+   block is configured to use input parity pin DIBP0. There is dangling output
+   for parity pin DOPB0.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+DRC detected 0 errors and 4 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
